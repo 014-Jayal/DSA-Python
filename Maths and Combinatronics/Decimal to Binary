@@ -1,0 +1,32 @@
+def decToBinary(n):
+    binArr = []
+
+    while n > 0:
+        bit = n % 2
+        binArr.append(str(bit))
+        n //= 2
+    
+    binArr.reverse()
+    return "".join(binArr)
+
+-----------------------------------------------
+
+def decToBinary(n):
+    bin = ""
+
+    while n > 0:
+      
+        bit = n & 1
+        bin += str(bit)
+
+        n = n >> 1
+
+    return bin[::-1]
+
+---------------------------------------------
+
+def decToBinary(n):
+    # Convert decimal to binary using Python's built-in bin() function
+    # bin(n) returns a string prefixed with "0b" (e.g., "0b1100" for 12)
+    # [2::] is string slicing that removes the "0b" prefix.
+    return bin(n)[2::]
