@@ -1,0 +1,39 @@
+#basic approach
+def floorSqrt(n):
+    
+    res = 1
+    while res * res <= n:
+        res += 1
+
+    return res - 1
+
+---------------------------------
+
+#Optimized approach*
+
+def floorSqrt(n):
+    
+    # Initial search space
+    lo = 1
+    hi = n
+    res = 1
+    
+    while lo <= hi:
+        mid = lo + (hi - lo) // 2
+        
+        # If square of mid is less than or equal to n 
+        # update the result and search in upper half
+        if mid * mid <= n:
+            res = mid
+            lo = mid + 1
+            
+        # If square of mid exceeds n, 
+        # search in the lower half
+        else:
+            hi = mid - 1
+    
+    return res
+
+if __name__ == "__main__":
+    n = 11
+    print(floorSqrt(n))
