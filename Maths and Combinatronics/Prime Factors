@@ -1,0 +1,23 @@
+def primeFac(n):
+    res = []
+
+    # Check for factor 2
+    if n % 2 == 0:
+        res.append(2)
+        while n % 2 == 0:
+            n //= 2
+
+    # Check for odd prime factors
+    i = 3
+    while i * i <= n:
+        if n % i == 0:
+            res.append(i)
+            while n % i == 0:
+                n //= i
+        i += 2
+
+    # If n is a prime > 2
+    if n > 2:
+        res.append(n)
+
+    return res
