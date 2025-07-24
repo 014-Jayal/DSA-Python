@@ -1,0 +1,54 @@
+#Not Optimized
+# Binary exponentiation
+def power(base, exp, mod):
+    result = 1
+    base %= mod
+    while exp > 0:
+        if exp % 2 == 1:
+            result = (result * base) % mod
+        base = (base * base) % mod
+        exp //= 2
+    return result
+
+# function to calculate GCD
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+def modInverse(b, m):
+    return power(b, m - 2, m)
+
+def modDivide(a, b, m):
+    
+     # Division not possible
+    if b == 0 or gcd(b, m) != 1:
+        return -1
+    inv = modInverse(b, m)
+    return (a * inv) % m
+
+------------------------------------------------------
+
+# Extended Euclidean Algorithm
+def gcdExtended(a, b):
+    if a == 0:
+        return b, 0, 1
+    gcd, x1, y1 = gcdExtended(b % a, a)
+    x = y1 - (b // a) * x1
+    y = x1
+    return gcd, x, y
+
+# Compute modular inverse
+def modInverse(b, M):
+    gcd, x, _ = gcdExtended(b, M)
+    if gcd != 1:
+        return -1
+    return (x % M + M) % M
+
+# Perform (a / b) % M
+def modDivide(a, b, M):
+    a %= M
+    inv = modInverse(b, M)
+    if inv == -1:
+        return -1
+    return (a * inv) % M
