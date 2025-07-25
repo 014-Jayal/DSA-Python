@@ -1,0 +1,43 @@
+#Not Optimized
+class Solution:
+    
+    M = int(1e9 + 7)
+    
+	def nthTerm(self, a, r, n):
+	    
+	    res = a
+	    
+        for _ in range(1, n):
+	        res = (res * r) % self.M 
+	        
+	    return res
+		
+--------------------
+
+#Optimized
+class Solution:
+    
+    M = int(1e9 + 7)
+    
+    def PowMod(self, r, n):
+        result = 1
+        r = r % self.M
+        
+        while n>0:
+            if n % 2 == 1:
+                result = (result * r) % self.M
+                
+            r = (r * r) % self.M
+            n //= 2
+            
+        return result
+    
+	def nthTerm(self, a, r, n):
+	    
+	    power = self.PowMod(r, n-1)
+	    return (a * power) % self.M
+	    
+	    
+	    
+		
+		
