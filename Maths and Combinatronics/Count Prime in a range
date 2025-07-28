@@ -29,3 +29,26 @@ def solveQueries(queries):
 
 ------------------------------------------------------------------
 
+#Optimized - gfg
+class Solution:
+    
+        
+    def countPrimes(self,L,R):
+        
+        
+        pri = [1] * (R+1)
+        pri[0] = pri[1] = False
+        
+        cnt = 0
+        
+        for i in range(2, int(R ** 0.5)+1):
+            if pri[i]:
+                for j in range(i*i, R+1, i):
+                    pri[j] = 0
+                    
+        for i in range(L, R+1):
+            if pri[i]:
+                cnt += 1
+                
+        return cnt
+        
