@@ -1,0 +1,15 @@
+class Solution:
+    def leastPrimeFactor (self, n):
+        sev = [0] *(n+1)
+        
+        sev[0] = 0
+        sev[1] = 1
+        
+        for i in range(2, n+1):
+            if not sev[i]:
+                sev[i] == i
+                for j in range(i, n+1, i):
+                    if not sev[j]:
+                        sev[j] = i
+            
+        return sev
