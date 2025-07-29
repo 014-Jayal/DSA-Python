@@ -1,0 +1,22 @@
+class Solution:
+    
+    def getmin(self, x, y):
+        return x if x<y else y
+        
+    def getAngle(self, s: str) -> float:
+        
+        h = int(s[:2])
+        m = int(s[3:])
+        
+        h = h % 12
+        
+        hrangle = 0.5 * (h * 60 + m)
+        
+        minangle = 6 * m
+        
+        angle = abs(hrangle - minangle)
+        
+        return self.getmin(angle, 360-angle)
+        
+        
+        
