@@ -1,0 +1,22 @@
+#Not Optimized
+class Solution:
+    def cntSpecialNum(self, arr):
+        
+        n = len(arr)
+        cnt = 0
+        
+        for i in range(n):
+            for j in range(n):
+                if i == j:
+                    continue
+                
+                if arr[i] % arr[j] == 0:
+                    cnt += 1
+                    break
+        
+        return cnt
+
+------------------------------------------------------
+
+
+            
