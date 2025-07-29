@@ -21,3 +21,30 @@ def primeFac(n):
         res.append(n)
 
     return res
+
+-----------------------------------------
+
+#Not Optimized
+
+class Solution:
+    
+    def primeFac(self, n):
+        
+        spf = [0] * (n+1)
+        for i in range(2, n+1):
+            spf[i] = i
+            
+        
+        for i in range(2, int(n ** 0.5) + 1):
+            if spf[i] == i:
+                for j in range(i*i, n+1, i):
+                    if spf[j] == j:
+                        spf[j] = i
+        
+        s = set()
+        
+        while n > 1 :
+            s.add(spf[n])
+            n = n//spf[n]
+            
+        return sorted(s)
