@@ -1,0 +1,23 @@
+#Not Optimized
+class Solution:
+    
+    def gcd(self, x, n):
+        if x == 0:
+            return n
+            
+        return self.gcd(n%x, x)
+        
+    def etf(self, n):
+        
+        cnt = 0
+        
+        for i in range(n):
+            if self.gcd(i, n) == 1:
+                
+                cnt += 1
+                
+        return cnt
+
+----------------------------------------------------
+
+        
