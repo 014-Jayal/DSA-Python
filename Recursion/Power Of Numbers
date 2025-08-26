@@ -1,0 +1,22 @@
+class Solution:
+    def findpow(self, n, x):
+        if x == 0:
+            return 1
+        
+        a = self.findpow(n, x//2)
+        
+        if x%2==0:
+            return a*a
+        else:
+            return a*a*n
+        
+    def reverseexponentiation(self, n):
+        rev = 0
+        temp = n
+        while temp>0:
+            rev = rev * 10 + (temp%10)
+            temp//=10
+        
+        demo = self.findpow(n, rev)
+        return demo
+            
