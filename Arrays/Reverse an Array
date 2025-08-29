@@ -11,4 +11,14 @@ class Solution:
             arr[i] = temp[i]
         
         return arr
-        
+
+---------------------------------------------------------
+#Using Built-in method
+
+class Solution:
+    def reverseArray(self, arr):   
+        return arr.reverse()
+
+---------------------------------------------------------
+
+
