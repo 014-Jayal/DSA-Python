@@ -22,3 +22,19 @@ class Solution:
 
 --------------------------------------------------
 
+#Using Hashing
+
+class Solution:
+    def countFreq(self, arr):
+        
+        hashd = {}
+            
+        ans = []
+        
+        for num in arr:
+            hashd[num] = hashd.get(num,0)+1
+            
+        for key, value in hashd.items():
+            ans.append([key, value])
+            
+        return ans
