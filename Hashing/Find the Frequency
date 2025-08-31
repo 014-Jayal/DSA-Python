@@ -1,0 +1,14 @@
+#Using loops
+
+class Solution:
+    def findFrequency(self, arr, x):
+        
+        count = 0
+        for item in arr:
+            if x == item:
+                count +=1
+                
+        return count
+
+----------------------------------------------
+
