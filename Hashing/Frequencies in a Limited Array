@@ -1,0 +1,16 @@
+#Using loops
+
+class Solution:
+    def frequencyCount(self, arr):
+        
+        n = len(arr)
+        
+        l1 = [0] * n
+        
+        for num in arr:
+            l1[num-1] += 1
+            
+        return l1
+
+--------------------------------------------------------
+
