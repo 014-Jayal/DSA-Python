@@ -14,3 +14,24 @@ class Solution:
 
 --------------------------------------------------------
 
+#Using Hashing
+
+class Solution:
+    def frequencyCount(self, arr):
+        
+        n = len(arr)
+        
+        hash_list = dict()
+        
+        for num in arr:
+            hash_list[num] = hash_list.get(num,0) + 1
+            
+        l1 = [0] * n
+        
+        for key, value in hash_list.items():
+            l1[key-1] = value
+            
+        return l1
+
+---------------------------------------------------------
+
