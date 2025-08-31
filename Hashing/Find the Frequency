@@ -12,3 +12,14 @@ class Solution:
 
 ----------------------------------------------
 
+#Using Filter() function
+
+class Solution:
+    def findFrequency(self, arr, x):
+        
+        itr = filter(lambda n: n == x, arr)
+        
+        res = len(list(itr))
+        
+        return res
+
