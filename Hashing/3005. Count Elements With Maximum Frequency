@@ -1,0 +1,21 @@
+class Solution:
+    def maxFrequencyElements(self, nums: List[int]) -> int:
+
+        n = len(nums)
+        hashd = dict()
+
+        for x in nums:
+            hashd[x] = hashd.get(x, 0) + 1
+
+        mfreq = max(hashd.values())
+
+        count = 0
+
+        for key, value in hashd.items():
+            if hashd[key] == mfreq:
+                count += value
+
+        return count
+
+---------------------------------------------------------------------
+
