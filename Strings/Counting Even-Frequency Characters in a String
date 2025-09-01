@@ -1,0 +1,42 @@
+#Hashing
+
+class Solution:
+    def count(self, s):
+        
+        hashdict = {}
+        
+        for char in s:
+            hashdict[char] = hashdict.get(char, 0) + 1
+        
+        count = 0
+        
+        for key, value in hashdict.items():
+            if value%2==0:
+                count += 1
+                
+        return count
+
+-------------------------------------------------------------
+
+#TLE error
+
+class Solution:
+    def count(self, s):
+        res = 0
+        
+        for char in range( ord("a"), ord("z")+1):
+            freq = 0
+            
+            for c in s:
+                if c == chr(char):
+                    freq += 1
+                    
+            if freq > 0 and freq % 2 == 0:
+                res += 1
+        
+        return res
+
+
+        
+        
+        
