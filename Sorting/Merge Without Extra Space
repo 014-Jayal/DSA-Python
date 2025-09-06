@@ -1,0 +1,28 @@
+#Using loops
+
+class Solution:
+    def mergeArrays(self, a, b):
+        
+        n = len(a)
+        m = len(b)
+        
+        merged = [0] * (n+m)
+        
+        for i in range(n):
+            merged[i] = a[i]
+            
+        for j in range(m):
+            merged[n+j] = b[j]
+            
+        merged.sort()
+        
+        for i in range(n):
+            a[i] = merged[i]
+            
+        for j in range(m):
+            b[j] = merged[n+j]
+
+----------------------------------------------
+
+
+
