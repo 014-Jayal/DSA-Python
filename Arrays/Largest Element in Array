@@ -1,0 +1,13 @@
+class Solution:
+    def largest(self, arr):
+        n = len(arr)
+        
+        max = 0
+        
+        for i in range(n):
+            if arr[i] > max:
+                max = arr[i]
+                
+        return max
+        
+--------------------------------------
