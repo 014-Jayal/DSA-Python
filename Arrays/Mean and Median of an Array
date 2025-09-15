@@ -1,0 +1,19 @@
+class Solution:
+    def median(self, arr):
+        n = len(arr)
+        arr.sort()
+        res = 0
+        
+        if n % 2 == 0:
+            res = (arr[n//2] + arr[(n//2) - 1]) // 2
+            
+        else:
+            res = arr[n//2]
+            
+        return res
+    
+    def mean(self, arr):
+        n = len(arr)
+        s = sum(arr)
+        
+        return s//n
