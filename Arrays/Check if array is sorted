@@ -9,3 +9,18 @@ class Solution:
                 return False
                 
         return True
+
+--------------------------------------------------
+
+class Solution:
+    def sortedhelp(self, arr, n):
+        
+        if n == 0 or n == 1:
+            return True
+            
+        return (arr[n-1] >= arr[n-2] and self.sortedhelp(arr, n-1))
+        
+    def isSorted(self, arr) -> bool:
+        n = len(arr)
+        
+        return self.sortedhelp(arr, n)
