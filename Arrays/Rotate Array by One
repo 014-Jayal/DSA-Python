@@ -1,0 +1,21 @@
+class Solution:
+    def rotate(self, arr):
+        
+        temp = arr[-1]
+        n = len(arr)
+        
+        for i in range(n-1,0,-1):
+            arr[i] = arr[i-1]
+        
+        arr[0] = temp
+        
+        return arr
+
+----------------------------------------
+
+class Solution:
+    def rotate(self, arr):
+        temp = arr[-1]
+        arr.pop()
+        arr.insert(0,temp)
+        return arr
