@@ -1,0 +1,18 @@
+class Solution:
+    def largestSwap(self, s):
+        
+        arr = list(s)
+        
+        last = {int(arr[i]) : i for i in range(len(arr))}
+        
+        for i in range(len(arr)):
+            
+            current = int(arr[i])
+            
+            for d in range(9, current, -1):
+                if d in last and last[d] > i:
+                    arr[i], arr[last[d]] = arr[last[d]], arr[i]
+                    return "".join(arr)
+        
+        return s
+        
