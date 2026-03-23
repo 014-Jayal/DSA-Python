@@ -1,0 +1,30 @@
+class Solution:
+    def longestCycle(self, V, edges):
+        adj = [-1] * V
+        for u, v in edges:
+            adj[u] = v
+        
+        visited = [False] * V
+        ans = -1
+        
+        for i in range(V):
+            if visited[i]:
+                continue
+            
+            node = i
+            curr_map = {}   # node -> step index
+            step = 0
+            
+            while node != -1 and not visited[node]:
+                visited[node] = True
+                curr_map[node] = step
+                step += 1
+                node = adj[node]
+                
+                if node in curr_map:
+                    cycle_length = step - curr_map[node]
+                    ans = max(ans, cycle_length)
+                    break
+        
+        return ans
+        
