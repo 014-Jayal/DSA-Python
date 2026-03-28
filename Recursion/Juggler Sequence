@@ -1,0 +1,11 @@
+class Solution:
+    def jugglerSequence(self, n):
+        if n == 1:
+            return [1]
+            
+        if n % 2 == 0:
+            next_n = int(n ** (1/2))
+        else:
+            next_n = int(n ** (3/2))
+            
+        return [n] + self.jugglerSequence(next_n)
