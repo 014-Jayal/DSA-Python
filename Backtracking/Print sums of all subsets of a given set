@@ -1,0 +1,14 @@
+class Solution:
+	def subsetSums(self, arr):
+		result = []
+		
+		def subsetsums(index, current_sum):
+		    if index == len(arr):
+		        result.append(current_sum)
+		        return
+		    
+		    subsetsums(index+1, current_sum + arr[index])
+		    subsetsums(index+1, current_sum)
+		
+        subsetsums(0,0)    
+        return result
